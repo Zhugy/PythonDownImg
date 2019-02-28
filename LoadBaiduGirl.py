@@ -43,4 +43,4 @@ class DownLoadBaiduGirl():
 
 
 download = DownLoadBaiduGirl()
-html = download.loadHtml('https://www.2717.com/tag/625.html')
+download.loadHtml('https://www.2717.com/tag/625.html')
