@@ -1,13 +1,14 @@
 import requests, os, pprint, bs4, re
 
 class DownLoadBaiduGirl():
-
+    # 根据Url 获取 html 文本
     def loadHtml(self, url):
         req = requests.get(url)
         req.encoding = 'utf-8'
         l = self.getImageUrlList(req.text)
         self.saveImages(l)
 
+    # 根据传入的html文本获取指定位置的 图片地址
     def getImageUrlList(self, htmls):
         group = bs4.BeautifulSoup(htmls, 'html.parser')
         list = group.find_all('li')
@@ -21,13 +22,12 @@ class DownLoadBaiduGirl():
             imagStrArr.append(img.get('src'))
         return imagStrArr
 
-
+    # 根据图片地址 下载图片
     def saveImages(self, imagStrArr):
 
         filePath = '/Users/xxxxx/xxxxxx/Python/PythonDownImg/BaiduGirl'
 
         if not os.path.isdir(filePath):
-
             os.mkdir(filePath)
 
         for index in range(len(imagStrArr)):
