@@ -1,9 +1,6 @@
 import requests, os, pprint, bs4, re
 
 class DownLoadBaiduGirl():
-
-## 我添加了一些注释
-
     # 根据Url 获取 html 文本
     def loadHtml(self, url):
         req = requests.get(url)
